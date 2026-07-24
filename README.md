@@ -1,98 +1,220 @@
-<h1>🧬 Kenny AI </h1>
-<li>Kenny AI is a personal project focused on creating a digital assistant powered by a local Large Language Model (LLM) through Ollama.</li>
+# 🧠 Kenny AI
 
-<li>The long-term goal is not to build a simple chatbot, but a digital entity with memory, personality, goals, and the ability to evolve over time. Kenny is designed to become a persistent companion capable of learning from interactions, storing experiences, and assisting with various tasks.</li>
+A personal local AI assistant built with Python, Ollama and MCP architecture.
 
+---
 
+## ✨ About
 
-<h1>🚀 Features</h1>
+Kenny is a modular local AI assistant designed to become a complete personal operating system powered by artificial intelligence.
 
-Current capabilities:
+Unlike ordinary chatbots, Kenny is built around a Brain, Memory, AI Router, and an MCP (Model Context Protocol) architecture that allows the assistant to use tools, remember information, and make decisions.
 
-<ul>
-  <li>Russian-language conversation support</li>
-  <li>Persistent memory between sessions</li>
-  <li>Local LLM integration through Ollama</li>
-  <li>Personality system</li>
-  <li>Goal management system</li>
-  <li>User profile storage</li>
-  <li>Digital diary system</li>
-  <li>Expandable modular architecture</li>
-</ul>
+Everything runs locally through Ollama.
+
+---
+
+## 🚀 Current Features
+
+### 🧠 Brain
+* AI decision system
+* AI Router
+* Intent Engine (fallback)
+* Task Manager
+
+### 💾 Memory
+* Conversation history
+* Long-term memory
+* User profile
+* Goals
+* Diary
+* State storage
+
+### 👤 User Profile
+* Name
+* Age
+* Interests
+* Preferences
+* Memory-based responses
+
+### 🖥 System MCP
+* CPU usage
+* RAM usage
+* Disk information
+* Date & Time
+* Windows information
+* Local IP
+* Hostname
+* Battery status
+* Running processes
+
+### 📁 Files MCP
+* List files
+* Search files
+* Read files
+* Create files
+* Write files
+* Append files
+* Rename files
+* Copy files
+* Move files
+* Delete files
+* File size
+
+### 🌍 Internet MCP
+* Internet status
+* Page loading
+* Provider architecture
+* Tavily support (optional)
+
+---
 
 ## 📂 Project Structure
 
 ```text
-kenny/
-├── main.py            # Main application entry point
-├── brain.py           # Prompt generation and logic
-├── llm.py             # Ollama communication
-├── memory.py          # Memory system
-├── personality.py     # Personality management
-├── goals.py           # Goal system
-├── diary.py           # Digital diary
-├── profile.py         # User profile
-├── config.py          # Project configuration
-
-├── memory.json        # Conversation memory
-├── personality.json   # Personality settings
-├── goals.json         # Goals database
-├── profile.json       # User information
-├── diary.json         # Diary entries
+KENNY/
+│
+├── main.py                 # Точка входа
+├── kenny.py                # Основной класс Kenny
+├── brain.py                # Логика принятия решений
+├── llm.py                  # Работа с Ollama/Qwen
+├── config.py               # Настройки
+├── task_manager.py         # Выполнение инструментов
+├── intent_engine.py        # Резервный Intent Engine
+├── tool_registry.py        # Реестр инструментов
+├── register_tools.py       # Регистрация всех MCP
+│
+├── core/
+│   ├── ai_router.py        # AI Router
+│   ├── planner.py          # Планировщик (заготовка)
+│   ├── executor.py         # Исполнитель планов
+│   ├── profile_manager.py  # Сохранение информации о пользователе
+│   └── profile_reader.py   # Ответы по профилю
+│
+├── memory/
+│   ├── memory.py
+│   ├── diary.py
+│   ├── profile.py
+│   ├── goals.py
+│   └── state.py
+│
+├── mcp/
+│   ├── mcp_client.py
+│   ├── router.py
+│   │
+│   ├── files/
+│   │   └── files.py
+│   │
+│   ├── system/
+│   │   └── system.py
+│   │
+│   ├── internet/
+│   │   ├── internet.py
+│   │   └── providers.py
+│   │
+│   ├── server/
+│   │   └── server.py
+│   │
+│   └── robots/
+│       └── robots.py
+│
+├── personality/
+│   ├── personality.py
+│   ├── emotions.py
+│   └── thoughts.py
+│
+├── data/
+│   ├── memory.json
+│   ├── diary.json
+│   ├── profile.json
+│   ├── goals.json
+│   ├── personality.json
+│   └── state.json
+│
+├── logs/
+│   └── kenny.log
+│
+├── README.md
+├── LICENSE
+├── requirements.txt
+└── .gitignore
 ```
 
-## ⚙️ Technologies
-<ul>
-  <li>Python</li>
-<li>Ollama</li>
-<li>Qwen Llama Models</li>
-<li>JSON</li>
-<li>Requests</li>
-</ul>
-
----
-
-## 🧠 Vision
-
-Kenny AI is intended to move beyond the traditional "question → answer" chatbot model.
-
-The project aims to create a digital being that:
-
-- Maintains long-term memory
-- Develops a consistent personality
-- Tracks and pursues goals
-- Keeps a diary of experiences
-- Learns about its user over time
-- Operates as a persistent digital companion
-
----
-
-## 🔮 Future Plans
-
-Planned features include:
-
-- Voice interaction
-- Long-term knowledge management
-- Autonomous thinking and reflection
-- Home server integration
-- Smart home connectivity
-- Digital world simulation
-- Visual avatar system
-- Robotics integration
-- Multi-device synchronization
-- yourself app or web interface
-
+🏗 Architecture
+```text
+User
+ │
+ ▼
+Brain
+ │
+ ├───────────────┐
+ │               │
+ ▼               ▼
+AI Router      Profile
+ │
+ ▼
+Task Manager
+ │
+ ▼
+MCP Router
+ │
+ ├──────── Files
+ ├──────── System
+ ├──────── Internet
+ ├──────── Robots
+ └──────── Server
 ```
 
-## 📜 License
+🛠 Technologies
+Python
 
-This project is developed for educational, research, and experimental purposes.
+Ollama
 
-```
+Qwen
 
-## 👤 Author
-shura-source-coder
+JSON
 
-Creator of Kenny AI.
+psutil
 
-Kenny AI is an ongoing project aimed at evolving from a local conversational assistant into a persistent digital companion with memory, personality, and autonomous capabilities.
+requests
+
+📈 Roadmap
+✅ v2 
+Brain
+
+AI Router
+
+Memory
+
+Profile
+
+Files MCP
+
+System MCP
+
+Internet MCP (base)
+
+Tool Registry
+
+🔜 Next Version
+Better AI Router
+
+Planner
+
+Executor
+
+Voice
+
+Vision
+
+Smart Memory
+
+Scheduler
+
+Plugin System
+
+🎯 Goal
+The long-term goal is to build a fully autonomous local AI assistant capable of reasoning, planning, remembering, using tools, and interacting naturally with the user.
+
+📜 License
+MIT License. Made with ❤️ using Python & Ollama.
